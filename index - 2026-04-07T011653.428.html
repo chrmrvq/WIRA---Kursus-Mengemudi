@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kursus Mengemudi Wira</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Pendaftaran Kursus Mengemudi Wira Profesional via WhatsApp"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1d4ed8;
+      --primary-hover: #1e40af;
+      --secondary: #ea580c;
+      --secondary-hover: #c2410c;
+      --background: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--background);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-nav {
+      background: var(--surface);
+      padding: 16px 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(29, 78, 216, 0.1);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-logo {
+      width: auto;
+      height: auto;
+      max-width: 250px;
+      max-height: 150px;
+      margin: 0 auto 30px auto;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(29, 78, 216, 0.3);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .card-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .package-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .pkg-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.2s;
+    }
+
+    .pkg-row:hover {
+      border-color: var(--primary);
+      background: #f0f5ff;
+    }
+
+    .pkg-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .pkg-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .pkg-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pkg-price {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .pkg-action {
+      text-align: right;
+    }
+
+    .pkg-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: inherit;
+      margin-top: 8px;
+    }
+
+    .pkg-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    /* MODAL POP-UP STYLES */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      display: none; justify-content: center; align-items: center;
+      z-index: 999; opacity: 0; transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; opacity: 1; }
+
+    .modal-content {
+      background: var(--surface);
+      padding: 32px;
+      border-radius: var(--radius-md);
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-overlay.active .modal-content { transform: translateY(0); }
+
+    .close-modal {
+      position: absolute; top: 16px; right: 20px;
+      font-size: 28px; color: var(--text-muted); cursor: pointer;
+      line-height: 1;
+    }
+    .close-modal:hover { color: var(--text-main); }
+
+    .modal-content h3 { margin-bottom: 8px; font-size: 24px; font-weight: 800;}
+    .modal-content p { color: var(--text-muted); font-size: 15px; margin-bottom: 20px; }
+
+    .input-wrapper { position: relative; margin-bottom: 20px; }
+    .input-wrapper label {
+      display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: var(--text-main);
+    }
+    .input-wrapper input {
+      width: 100%; padding: 14px 16px; background: var(--background);
+      border: 1px solid var(--border); color: var(--text-main);
+      border-radius: var(--radius-sm); font-size: 16px; font-family: inherit;
+      transition: border-color 0.3s;
+    }
+    .input-wrapper input:focus {
+      outline: none; border-color: var(--primary); background: var(--surface);
+    }
+
+    /* GAYA BARU UNTUK CHECKBOX SIM */
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+      background: #f0f5ff;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(29, 78, 216, 0.2);
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+    .checkbox-group label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+    .checkbox-group label span {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .wa-btn {
+      width: 100%; padding: 16px; background: #25D366; color: white;
+      border: none; border-radius: var(--radius-sm); font-weight: 700;
+      font-size: 16px; cursor: pointer; transition: background 0.3s;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      font-family: inherit;
+    }
+    .wa-btn:hover { background: #1ebd57; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 40px 20px; color: var(--text-muted);
+      border-top: 1px solid var(--border); font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="top-nav">
+    <div class="brand">🚘 WIRA</div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-badge">Instruktur Bersertifikat & Berpengalaman</div>
+
+    <img src="final_wira_logo.png" alt="WIRA Kursus Mengemudi Logo" class="hero-logo" />
+
+    <h1>Kami Peduli Masa Depan Anda</h1>
+
+    <p>Pilih kelas dan jumlah pertemuan yang sesuai dengan kebutuhan Anda. Dibimbing langsung dari nol hingga mahir.</p>
+  </header>
+
+  <main class="container">
+    <div class="section-header">
+      <h2>Pilihan Kelas Kursus</h2>
+      <p>Investasi terbaik untuk keselamatan berkendara Anda. Semua kelas durasi 1 Jam/Pertemuan.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="gambar_paket_a.jpg" alt="Mobil Manual Terios" onerror="this.src='https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=400&fit=crop'">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Class Terios Manual</h3>
+          <p class="card-subtitle">Non SIM • Transmisi Manual</p>
+
+          <div class="package-options">
+            <div class="pkg-row">
+              <div class="pkg-info">
+                <span class="pkg-name">5x Pertemuan</span>
+                <span class="pkg-desc">1 Jam / Pertemuan</span>
+              </div>
+              <div class="pkg-action">
+                <div class="pkg-price">Rp 700.000</div>
+                <button class="pkg-btn" onclick="bukaModal('Class Terios Manual (5x Pertemuan)')">Pilih</button>
+              </div>
+            </div>
+
+            <div class="pkg-row">
+              <div class="pkg-info">
+                <span class="pkg-name">8x Pertemuan</span>
+                <span class="pkg-desc">1 Jam / Pertemuan</span>
+              </div>
+              <div class="pkg-action">
+                <div class="pkg-price">Rp 1.100.000</div>
+                <button class="pkg-btn" onclick="bukaModal('Class Terios Manual (8x Pertemuan)')">Pilih</button>
+              </div>
+            </div>
+
+            <div class="pkg-row">
+              <div class="pkg-info">
+                <span class="pkg-name">10x Pertemuan</span>
+                <span class="pkg-desc">1 Jam / Pertemuan</span>
+              </div>
+              <div class="pkg-action">
+                <div class="pkg-price">Rp 1.350.000</div>
+                <button class="pkg-btn" onclick="bukaModal('Class Terios Manual (10x Pertemuan)')">Pilih</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <img src="gambar_paket_b.jpg" alt="Mobil Matic Sirion" onerror="this.src='https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop'">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Class Matic Sirion</h3>
+          <p class="card-subtitle">Non SIM • Transmisi Otomatis</p>
+
+          <div class="package-options">
+            <div class="pkg-row">
+              <div class="pkg-info">
+                <span class="pkg-name">5x Pertemuan</span>
+                <span class="pkg-desc">1 Jam / Pertemuan</span>
+              </div>
+              <div class="pkg-action">
+                <div class="pkg-price">Rp 800.000</div>
+                <button class="pkg-btn" onclick="bukaModal('Class Matic Sirion (5x Pertemuan)')">Pilih</button>
+              </div>
+            </div>
+
+            <div class="pkg-row">
+              <div class="pkg-info">
+                <span class="pkg-name">8x Pertemuan</span>
+                <span class="pkg-desc">1 Jam / Pertemuan</span>
+              </div>
+              <div class="pkg-action">
+                <div class="pkg-price">Rp 1.150.000</div>
+                <button class="pkg-btn" onclick="bukaModal('Class Matic Sirion (8x Pertemuan)')">Pilih</button>
+              </div>
+            </div>
+
+            <div class="pkg-row">
+              <div class="pkg-info">
+                <span class="pkg-name">10x Pertemuan</span>
+                <span class="pkg-desc">1 Jam / Pertemuan</span>
+              </div>
+              <div class="pkg-action">
+                <div class="pkg-price">Rp 1.450.000</div>
+                <button class="pkg-btn" onclick="bukaModal('Class Matic Sirion (10x Pertemuan)')">Pilih</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <img src="gambar_paket_c.jpg" alt="Kelas Mix" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&h=400&fit=crop'">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Class Mix</h3>
+          <p class="card-subtitle">Non SIM • Kombinasi Manual & Matic</p>
+
+          <div class="package-options">
+            <div class="pkg-row">
+              <div class="pkg-info">
+                <span class="pkg-name">3x Manual + 2x Matic</span>
+                <span class="pkg-desc">Total 5x (1 Jam/Pertemuan)</span>
+              </div>
+              <div class="pkg-action">
+                <div class="pkg-price">Rp 750.000</div>
+                <button class="pkg-btn" onclick="bukaModal('Class Mix (3x Manual & 2x Matic)')">Pilih</button>
+              </div>
+            </div>
+
+            <div class="pkg-row">
+              <div class="pkg-info">
+                <span class="pkg-name">5x Manual + 2x Matic</span>
+                <span class="pkg-desc">Total 7x (1 Jam/Pertemuan)</span>
+              </div>
+              <div class="pkg-action">
+                <div class="pkg-price">Rp 1.050.000</div>
+                <button class="pkg-btn" onclick="bukaModal('Class Mix (5x Manual & 2x Matic)')">Pilih</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Wira Kursus Mengemudi. Semua hak cipta dilindungi.</p>
+  </footer>
+
+  <div id="formModal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="close-modal" onclick="tutupModal()">&times;</span>
+      <h3>Selesaikan Pendaftaran</h3>
+      <p id="paketPilihanText">Pilihan Anda: <b>-</b></p>
+
+      <div class="input-wrapper">
+        <label for="namaKlien">Nama Lengkap</label>
+        <input type="text" id="namaKlien" placeholder="Contoh: Budi Santoso" required autocomplete="name">
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="tambahSIM">
+        <label for="tambahSIM">
+          Tambah Pembuatan SIM A (+ Rp 950.000)
+          <span>Centang jika Anda ingin mendaftar kursus sekalian dibantu proses pembuatan SIM.</span>
+        </label>
+      </div>
+
+      <button class="wa-btn" onclick="kirimKeWA()">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Kirim Pesan ke WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let paketYangDipilih = "";
+    const nomorAdminWA = "62811545585";
+
+    function bukaModal(namaPaket) {
+      paketYangDipilih = namaPaket;
+      document.getElementById('paketPilihanText').innerHTML = `Pilihan Anda: <b style="color: var(--primary);">${namaPaket}</b>`;
+      document.getElementById('formModal').classList.add('active');
+      setTimeout(() => document.getElementById('namaKlien').focus(), 100);
+    }
+
+    function tutupModal() {
+      document.getElementById('formModal').classList.remove('active');
+      document.getElementById('namaKlien').value = "";
+      document.getElementById('tambahSIM').checked = false; // Reset centang saat ditutup
+    }
+
+    document.getElementById('formModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        tutupModal();
+      }
+    });
+
+    function kirimKeWA() {
+      const nama = document.getElementById('namaKlien').value.trim();
+      const statusSIM = document.getElementById('tambahSIM').checked; // Cek apakah dicentang
+
+      if(nama === "") {
+        const inputField = document.getElementById('namaKlien');
+        inputField.style.borderColor = "red";
+        inputField.focus();
+        setTimeout(() => inputField.style.borderColor = "var(--border)", 2000);
+        return;
+      }
+
+      // BAGIAN INI JUGA SUDAH DIPERBAIKI MENJADI 950.000
+      let tambahanTeks = statusSIM ? " *sekalian dengan paket pembuatan SIM A (+ Rp 950.000)*" : "";
+
+      const pesan = `Halo Admin Wira, nama saya *${nama}*. Saya tertarik untuk mendaftar kursus menyetir *${paketYangDipilih}*${tambahanTeks}. Mohon informasi mengenai ketersediaan jadwalnya. Terima kasih!`;
+
+      const urlWA = `https://wa.me/${nomorAdminWA}?text=${encodeURIComponent(pesan)}`;
+
+      window.open(urlWA, '_blank');
+      tutupModal();
+    }
+  </script>
+</body>
+</html>
