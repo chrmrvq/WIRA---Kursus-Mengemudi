@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kursus Mengemudi Wira - Kelas Mengemudi Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Pendaftaran Kursus Mengemudi Wira Profesional & Premium via WhatsApp"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Palette Warna Premium Gold/Amber & Dark Slate */
+      --primary: #d97706; /* Rich Amber / Gold */
+      --primary-hover: #b45309; /* Darker Gold */
+      --primary-light: rgba(217, 119, 6, 0.1);
+      --secondary: #0f172a; /* Obsidian Slate */
+      --accent: #f59e0b; /* Bright Amber */
+
+      /* Background Gradients */
+      --bg-gradient: linear-gradient(135deg, #fffdf5 0%, #fef3c7 40%, #fffbeb 100%);
+      --surface-glass: rgba(255, 255, 255, 0.75);
+      --border-gold: rgba(217, 119, 6, 0.15);
+
+      /* Text Colors */
+      --text-main: #1e293b; /* Charcoal Slate */
+      --text-muted: #64748b;
+      --text-light: #ffffff;
+
+      /* Radii & Shadows */
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --shadow-sm: 0 4px 6px -1px rgba(217, 119, 6, 0.05);
+      --shadow-md: 0 10px 15px -3px rgba(217, 119, 6, 0.08), 0 4px 6px -2px rgba(217, 119, 6, 0.04);
+      --shadow-lg: 0 20px 25px -5px rgba(217, 119, 6, 0.12), 0 10px 10px -5px rgba(217, 119, 6, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Top Navigation - Premium Glassmorphism */
+    .top-nav {
+      background: rgba(15, 23, 42, 0.9); /* Menggunakan warna Obsidian Slate dengan efek transparan */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 20px 40px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Mempertegas bayangan */
+      border-bottom: 1px solid rgba(217, 119, 6, 0.3); /* Memberikan aksen garis bawah warna Gold premium */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    .brand {
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .nav-cta-btn {
+      background: var(--secondary);
+      color: var(--text-light);
+      padding: 10px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    }
+
+    .nav-cta-btn:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 80px;
+      position: relative;
+    }
+
+    /* Floating Abstract Golden Light Effects */
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, rgba(251, 191, 36, 0) 70%);
+      filter: blur(40px);
+      z-index: -1;
+    }
+
+    .hero::before {
+      top: 10%;
+      left: 10%;
+    }
+
+    .hero::after {
+      bottom: 10%;
+      right: 10%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: var(--secondary);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-gold);
+    }
+
+    .hero-badge svg {
+      color: var(--primary);
+    }
+
+    .hero-logo-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .hero-logo {
+      width: auto;
+      height: 300px;
+      filter: drop-shadow(0 15px 20px rgba(217, 119, 6, 0.25));
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--secondary);
+      margin-bottom: 24px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    /* Trust Stats Block */
+    .trust-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* Core Container Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    /* Trust & Advantages Section */
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 100px;
+    }
+
+    .adv-card {
+      background: var(--surface-glass);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border-gold);
+      padding: 40px 30px;
+      border-radius: var(--radius-md);
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .adv-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+
+    .adv-icon {
+      background: var(--primary-light);
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: var(--primary);
+    }
+
+    .adv-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--secondary);
+    }
+
+    .adv-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Pricing Section */
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--secondary);
+      letter-spacing: -1px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 40px;
+    }
+
+    /* Premium Pricing Cards */
+    .card {
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-gold);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(217, 119, 6, 0.4);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-image-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .card-image img {
+      transform: scale(1.05);
+    }
+
+    .card-image::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .card-content {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title-group {
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--secondary);
+      margin-bottom: 6px;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .package-options {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex-grow: 1;
+    }
+
+    /* Premium Rows inside Cards */
+    .pkg-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+    }
+
+    .pkg-row:hover {
+      border-color: var(--primary);
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+      transform: scale(1.02);
+    }
+
+    .pkg-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .pkg-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--secondary);
+    }
+
+    .pkg-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .pkg-price-group {
+      text-align: right;
+    }
+
+    .pkg-price {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--secondary);
+      margin-bottom: 6px;
+    }
+
+    .pkg-btn {
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      background: var(--secondary);
+      color: var(--text-light);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .pkg-btn:hover {
+      background: var(--primary);
+      box-shadow: 0 4px 10px rgba(217, 119, 6, 0.2);
+    }
+
+    /* MODAL POP-UP STYLES */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.3s ease;
+      padding: 24px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: var(--radius-md);
+      width: 100%;
+      max-width: 460px;
+      position: relative;
+      transform: translateY(30px) scale(0.95);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-gold);
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0) scale(1);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 32px;
+      height: 32px;
+      background: #f1f5f9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .close-modal:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 8px;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--secondary);
+      letter-spacing: -0.5px;
+    }
+
+    .modal-content p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .input-wrapper label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      padding: 16px 20px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      border-radius: var(--radius-sm);
+      font-size: 16px;
+      font-family: inherit;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .input-wrapper input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.15);
+    }
+
+    /* Premium Checkbox Card */
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 32px;
+      background: var(--primary-light);
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(217, 119, 6, 0.2);
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .checkbox-group label {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary-hover);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    .checkbox-group label span {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .wa-btn {
+      width: 100%;
+      padding: 18px;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-family: inherit;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    }
+
+    .wa-btn:hover {
+      background: #1ebd57;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Footer Styles */
+    footer {
+      background: var(--secondary);
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      padding: 60px 24px;
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p {
+      margin-top: 16px;
+    }
+
+    /* Responsiveness adjustments */
+    @media (max-width: 768px) {
+      .top-nav {
+        padding: 16px 20px;
+      }
+      .container {
+        padding: 60px 20px;
+      }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .trust-container {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="top-nav">
+    <div class="brand">
+      <img src="final_wira_logo.png" alt="Logo WIRA" style="height: 40px; width: auto;" />
+    <div style="font-weight: 800; font-size: 24px; color: #ffffff; letter-spacing: -1px; margin-bottom: 8px;">
+      <span style="color: var(--primary);">WIRA</span> Kursus Mengemudi
+    </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <!-- Redesigned Logo Space -->
+    <div class="hero-logo-container">
+      <img src="final_wira_logo.png" alt="WIRA Kursus Mengemudi Logo" class="hero-logo" />
+    </div>
+
+    <div class="hero-badge">
+      <!-- Shield Check Icon -->
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <path d="m9 11 2 2 4-4"></path>
+      </svg>
+      Instruktur Bersertifikat & Berpengalaman Resmi
+    </div>
+
+    <h1>Kami Peduli <span>Masa Depan Anda</span></h1>
+
+    <p>Pilih kelas dan jumlah pertemuan yang sesuai dengan kebutuhan Anda. Dibimbing langsung dari nol hingga mahir.</p>
+
+    <!-- Pricing Section -->
+    <section id="kelas-pilihan">
+      <div class="section-header">
+        <h2>Pilihan Kelas Kursus</h2>
+        <p>Investasi terbaik untuk keselamatan dan kemahiran berkendara prima Anda di jalan raya.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Card Manual -->
+        <div class="card">
+          <div class="card-image-wrapper">
+            <div class="card-image">
+              <img src="gambar_paket_a.jpg" alt="Mobil Manual Terios" onerror="this.src='https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=400&fit=crop'">
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-title-group">
+              <span class="card-subtitle"></span>
+              <h3 class="card-title">Kelas Manual Terios</h3>
+            </div>
+
+            <div class="package-options">
+              <div class="pkg-row">
+                <div class="pkg-info">
+                  <span class="pkg-name">5x Pertemuan</span>
+                  <span class="pkg-desc">1 Jam per Sesi</span>
+                </div>
+                <div class="pkg-price-group">
+                  <div class="pkg-price">Rp 700.000</div>
+                  <button class="pkg-btn" onclick="bukaModal('Class Terios Manual (5x Pertemuan)')">Pilih Paket</button>
+                </div>
+              </div>
+
+              <div class="pkg-row">
+                <div class="pkg-info">
+                  <span class="pkg-name">8x Pertemuan</span>
+                  <span class="pkg-desc">1 Jam per Sesi</span>
+                </div>
+                <div class="pkg-price-group">
+                  <div class="pkg-price">Rp 1.100.000</div>
+                  <button class="pkg-btn" onclick="bukaModal('Class Terios Manual (8x Pertemuan)')">Pilih Paket</button>
+                </div>
+              </div>
+
+              <div class="pkg-row">
+                <div class="pkg-info">
+                  <span class="pkg-name">10x Pertemuan</span>
+                  <span class="pkg-desc">1 Jam per Sesi</span>
+                </div>
+                <div class="pkg-price-group">
+                  <div class="pkg-price">Rp 1.350.000</div>
+                  <button class="pkg-btn" onclick="bukaModal('Class Terios Manual (10x Pertemuan)')">Pilih Paket</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Matic -->
+        <div class="card">
+          <div class="card-image-wrapper">
+            <div class="card-image">
+              <img src="gambar_paket_b.jpg" alt="Mobil Matic Sirion" onerror="this.src='https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=400&fit=crop'">
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-title-group">
+              <span class="card-subtitle"></span>
+              <h3 class="card-title">Kelas Matic Sirion</h3>
+            </div>
+
+            <div class="package-options">
+              <div class="pkg-row">
+                <div class="pkg-info">
+                  <span class="pkg-name">5x Pertemuan</span>
+                  <span class="pkg-desc">1 Jam per Sesi</span>
+                </div>
+                <div class="pkg-price-group">
+                  <div class="pkg-price">Rp 800.000</div>
+                  <button class="pkg-btn" onclick="bukaModal('Class Matic Sirion (5x Pertemuan)')">Pilih Paket</button>
+                </div>
+              </div>
+
+              <div class="pkg-row">
+                <div class="pkg-info">
+                  <span class="pkg-name">8x Pertemuan</span>
+                  <span class="pkg-desc">1 Jam per Sesi</span>
+                </div>
+                <div class="pkg-price-group">
+                  <div class="pkg-price">Rp 1.150.000</div>
+                  <button class="pkg-btn" onclick="bukaModal('Class Matic Sirion (8x Pertemuan)')">Pilih Paket</button>
+                </div>
+              </div>
+
+              <div class="pkg-row">
+                <div class="pkg-info">
+                  <span class="pkg-name">10x Pertemuan</span>
+                  <span class="pkg-desc">1 Jam per Sesi</span>
+                </div>
+                <div class="pkg-price-group">
+                  <div class="pkg-price">Rp 1.450.000</div>
+                  <button class="pkg-btn" onclick="bukaModal('Class Matic Sirion (10x Pertemuan)')">Pilih Paket</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Mix (Kombinasi) -->
+        <div class="card">
+          <div class="card-image-wrapper">
+            <div class="card-image">
+              <img src="gambar_paket_c.jpg" alt="Kelas Mix" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&h=400&fit=crop'">
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-title-group">
+              <span class="card-subtitle"></span>
+              <h3 class="card-title">Kelas Manual + Matic</h3>
+            </div>
+
+            <div class="package-options">
+              <div class="pkg-row">
+                <div class="pkg-info">
+                  <span class="pkg-name">3x Manual + 2x Matic</span>
+                  <span class="pkg-desc">Total 5x Sesi Kelas</span>
+                </div>
+                <div class="pkg-price-group">
+                  <div class="pkg-price">Rp 750.000</div>
+                  <button class="pkg-btn" onclick="bukaModal('Class Mix (3x Manual & 2x Matic)')">Pilih Paket</button>
+                </div>
+              </div>
+
+              <div class="pkg-row">
+                <div class="pkg-info">
+                  <span class="pkg-name">5x Manual + 2x Matic</span>
+                  <span class="pkg-desc">Total 7x Sesi Kelas</span>
+                </div>
+                <div class="pkg-price-group">
+                  <div class="pkg-price">Rp 1.050.000</div>
+                  <button class="pkg-btn" onclick="bukaModal('Class Mix (5x Manual & 2x Matic)')">Pilih Paket</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Premium Footer -->
+  <footer>
+    <div style="font-weight: 800; font-size: 24px; color: #ffffff; letter-spacing: -1px; margin-bottom: 8px;">
+      <span style="color: var(--primary);">WIRA</span> Kursus Mengemudi
+    </div>
+    <div style="font-size: 13px; opacity: 0.7; max-width: 450px; margin: 0 auto;"></div>
+    <p>© 2026 Wira Kursus Mengemudi. Semua hak cipta dilindungi.</p>
+  </footer>
+
+  <!-- MODAL POP-UP (RESERVATION PORTAL) -->
+  <div id="formModal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="close-modal" onclick="tutupModal()">&times;</span>
+      <h3>Portal Pendaftaran</h3>
+      <p id="paketPilihanText">Kelas yang Anda pilih: <b>-</b></p>
+
+      <div class="input-wrapper">
+        <label for="namaKlien">Nama Lengkap Anda</label>
+        <input type="text" id="namaKlien" placeholder="Contoh: Sebastian Wijaya" required autocomplete="name">
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="tambahSIM">
+        <label for="tambahSIM">
+          Tambah Pembuatan SIM A (+ Rp 950.000)
+          <span>Dapatkan kemudahan proses verifikasi & pembuatan SIM A resmi yang dibantu langsung oleh tim kami.</span>
+        </label>
+      </div>
+
+      <button class="wa-btn" onclick="kirimKeWA()">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Kirim Reservasi ke WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let paketYangDipilih = "";
+    const nomorAdminWA = "62811545585";
+
+    function bukaModal(namaPaket) {
+      paketYangDipilih = namaPaket;
+      document.getElementById('paketPilihanText').innerHTML = `Kelas yang Anda pilih: <b style="color: var(--primary);">${namaPaket}</b>`;
+      document.getElementById('formModal').classList.add('active');
+      setTimeout(() => document.getElementById('namaKlien').focus(), 200);
+    }
+
+    function tutupModal() {
+      document.getElementById('formModal').classList.remove('active');
+      document.getElementById('namaKlien').value = "";
+      document.getElementById('tambahSIM').checked = false;
+    }
+
+    // Close on clicking overlay
+    document.getElementById('formModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        tutupModal();
+      }
+    });
+
+    function kirimKeWA() {
+      const nama = document.getElementById('namaKlien').value.trim();
+      const statusSIM = document.getElementById('tambahSIM').checked;
+
+      if(nama === "") {
+        const inputField = document.getElementById('namaKlien');
+        inputField.style.borderColor = "var(--primary)";
+        inputField.focus();
+        setTimeout(() => inputField.style.borderColor = "var(--border)", 2000);
+        return;
+      }
+
+      let tambahanTeks = statusSIM ? " *sekalian dengan paket pembuatan SIM A (+ Rp 950.000)*" : "";
+
+      const pesan = `Halo Admin Wira, nama saya *${nama}*. Saya tertarik untuk mendaftar kelas mengemudi *${paketYangDipilih}*${tambahanTeks}. Mohon info jadwal ketersediaan kelasnya. Terima kasih!`;
+
+      const urlWA = `https://wa.me/${nomorAdminWA}?text=${encodeURIComponent(pesan)}`;
+
+      window.open(urlWA, '_blank');
+      tutupModal();
+    }
+  </script>
+</body>
+</html>
